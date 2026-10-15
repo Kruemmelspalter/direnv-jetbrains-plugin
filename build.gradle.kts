@@ -30,7 +30,7 @@ listOf(configurations.runtimeClasspath, configurations.testRuntimeClasspath).for
 
 dependencies {
     intellijPlatform {
-        create(IntelliJPlatformType.IntellijIdeaCommunity, providers.gradleProperty("platformVersion")) {
+        create(IntelliJPlatformType.RustRover, providers.gradleProperty("platformVersion")) {
             useInstaller = false
         }
         pluginComposedModule(implementation(project(":core")))
@@ -39,6 +39,7 @@ dependencies {
         pluginComposedModule(implementation(project(":products:java")))
         pluginComposedModule(implementation(project(":products:javascript")))
         pluginComposedModule(implementation(project(":products:maven")))
+        pluginComposedModule(implementation(project(":products:rust")))
         pluginVerifier()
         zipSigner()
         testFramework(TestFrameworkType.Platform)
@@ -102,6 +103,8 @@ intellijPlatform {
             // Ultimate is the only IDE here that bundles JavaScript, so it is the only one that
             // exercises the Node module rather than skipping it as unavailable.
             create(IntelliJPlatformType.IntellijIdea, providers.gradleProperty("platformVersion"))
+
+            create(IntelliJPlatformType.RustRover, providers.gradleProperty("platformVersion"))
         }
     }
 

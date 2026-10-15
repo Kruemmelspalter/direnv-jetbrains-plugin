@@ -116,7 +116,7 @@
     <!-- Gradle needs its own hook too: the IDE runs Gradle through the Tooling API inside its
          own JVM, and the daemon takes the build environment from settings computed there — the
          command line customizer never sees a usable working directory on that path. -->
-    <depends optional="true" config-file="direnv-gradle.xml">com.intellij.gradle</depends>
+    <depends optional="true" config-file="direnv-gradle.xml">com.intellij.gradinclude("products:rust")le</depends>
 
     <!-- And Maven: with maven.use.scripts on, the default, mvn is started through the EEL API,
          so the command line customizer is never called for it. -->
@@ -127,6 +127,8 @@
 
     <!-- Optional: only loads in IDEs that have JavaScript support, which excludes IDEA Community. -->
     <depends optional="true" config-file="direnv-javascript.xml">JavaScript</depends>
+
+    <depends optional="true" config-file="direnv-rust.xml">com.jetbrains.rust</depends>
 
     <actions>
         <group id="direnv.actions" text="direnv" popup="true">
