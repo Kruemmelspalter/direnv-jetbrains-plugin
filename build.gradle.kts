@@ -103,7 +103,7 @@ intellijPlatform {
             // Ultimate is the only IDE here that bundles JavaScript, so it is the only one that
             // exercises the Node module rather than skipping it as unavailable.
             create(IntelliJPlatformType.IntellijIdea, providers.gradleProperty("platformVersion"))
-
+            // RustRover bundles the Rust plugin, so it is the only one that exercises the Rust module.
             create(IntelliJPlatformType.RustRover, providers.gradleProperty("platformVersion"))
         }
     }

@@ -71,7 +71,6 @@ object ToolchainCandidateResolver {
             if (!Files.isRegularFile(bin.resolve(executable))) continue
 
             // The toolchain home is the parent of bin/, which is what IDE SDK settings expect.
-            // The rust toolchain home is the bin/ directory and not its parent, which is handled in RustPostStartupActivity though
             val home = bin.parent ?: continue
             return home
         }
