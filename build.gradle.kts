@@ -30,7 +30,7 @@ listOf(configurations.runtimeClasspath, configurations.testRuntimeClasspath).for
 
 dependencies {
     intellijPlatform {
-        create(IntelliJPlatformType.RustRover, providers.gradleProperty("platformVersion")) {
+        create(IntelliJPlatformType.IntellijIdeaCommunity, providers.gradleProperty("platformVersion")) {
             useInstaller = false
         }
         pluginComposedModule(implementation(project(":core")))
